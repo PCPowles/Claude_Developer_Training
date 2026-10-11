@@ -1,12 +1,28 @@
 import os
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__),"..","shared"))
+
 from lab_runtime import step_header, exam_note, pitfall, checkpoint
 # python
+
+def main() -> None:
+    step_header(
+        cert="CCDV-F",
+        module="Messages API Mechanics",
+        step=1,
+        of=4,
+        title="Make a call and read every field of the response",
+        domain="D2 Applications and Integration",
+        weight=33.1,
+        technique="Response Anatomy",
+    )
+
 
 import json
 from anthropic import Anthropic
 
+"""
 # Mock wrappers for the course's utility logging environment shown in your IDE
 def exam_note(text):
     print(f"[EXAM NOTE]: {text}")
@@ -18,6 +34,8 @@ def checkpoint(filepath):
     print(f"[CHECKPOINT]: Successfully verified {filepath}")
 
 def step_header(text): print(f"\n=== {text} ===")
+
+"""
 
 # --- Course Setup Comments & Helpers ---
 exam_note(
@@ -34,6 +52,8 @@ pitfall(
 
 checkpoint(__file__)
 
+
+"""
 # --- Core Completed Messages API Implementation ---
 def run_first_message_call():
     # Initialize the client with your environment key
@@ -62,11 +82,16 @@ def run_first_message_call():
             "output_tokens": response.usage.output_tokens
         }
     }
-
+"""
 if __name__ == "__main__":
+    main()
+
+    """
     # Execute the completed step implementation
+
     result = run_first_message_call()
     print("\n--- Execution JSON Output ---")
     print(json.dumps(result, indent=2))
+    """
 
 

@@ -10,7 +10,8 @@ if os.environ.get("USE_VERTEX"):
 else:
     client = Anthropic()
 
-MODEL = os.environ["CLAUDE_MODEL"]   # model IDs differ between platforms
+# MODEL = os.environ["CLAUDE_MODEL"]   # model IDs differ between platforms
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5")   # falls back to Sonnet 5.5 if not set
 HERE = Path(__file__).parent
 image = base64.standard_b64encode(open(HERE / "invoice.png", "rb").read()).decode()
 # image = base64.standard_b64encode(open("invoice.png", "rb").read()).decode()

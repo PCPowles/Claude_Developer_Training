@@ -1,4 +1,4 @@
-   # make_samples.py - creates sample logs and source code for supervisor.py
+# make_samples.py - creates sample logs and source code for supervisor.py
 from pathlib import Path
 
 FILES = {

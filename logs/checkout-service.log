@@ -1,0 +1,19 @@
+2026-10-12T01:45:02Z INFO  checkout-service started version=4.2.0
+2026-10-12T01:52:10Z INFO  checkout-service order=A1001 status=completed amount=59.99
+2026-10-12T01:58:30Z INFO  deploy-agent applied config change config/payment.yaml (db_pool_size 20 -> 5)
+2026-10-12T02:01:15Z INFO  checkout-service order=A1002 status=completed amount=12.50
+2026-10-12T02:07:14Z ERROR checkout-service order=A1003 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:09:41Z ERROR checkout-service order=A1004 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:11:03Z WARN  checkout-service order=A1005 retrying payment attempt=2
+2026-10-12T02:11:08Z ERROR checkout-service order=A1005 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:15:22Z ERROR checkout-service order=A1006 InventoryLockError: could not acquire inventory lock for SKU
+2026-10-12T02:18:47Z ERROR checkout-service order=A1007 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:24:09Z INFO  checkout-service order=A1008 status=completed amount=33.00
+2026-10-12T02:26:55Z ERROR checkout-service order=A1009 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:31:30Z ERROR checkout-service order=A1010 InventoryLockError: could not acquire inventory lock for SKU
+2026-10-12T02:35:12Z ERROR checkout-service order=A1011 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:41:58Z ERROR checkout-service order=A1012 PaymentGatewayTimeout: payment provider did not respond within 5000ms
+2026-10-12T02:44:20Z INFO  deploy-agent rolled back config/payment.yaml (db_pool_size 5 -> 20)
+2026-10-12T02:47:03Z INFO  checkout-service order=A1013 status=completed amount=74.25
+2026-10-12T02:55:40Z INFO  checkout-service order=A1014 status=completed amount=8.99
+2026-10-12T03:12:16Z ERROR checkout-service order=A1015 AddressValidationError: postal code format not recognised

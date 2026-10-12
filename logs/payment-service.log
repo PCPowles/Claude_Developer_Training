@@ -1,0 +1,8 @@
+2026-10-12T01:45:00Z INFO  payment-service started pool_size=20
+2026-10-12T01:58:35Z INFO  payment-service reloaded config pool_size=5
+2026-10-12T02:05:51Z ERROR payment-service ConnectionPoolExhausted: no database connections available in pool
+2026-10-12T02:09:30Z ERROR payment-service ConnectionPoolExhausted: no database connections available in pool
+2026-10-12T02:18:40Z ERROR payment-service ConnectionPoolExhausted: no database connections available in pool
+2026-10-12T02:26:49Z ERROR payment-service ConnectionPoolExhausted: no database connections available in pool
+2026-10-12T02:41:50Z ERROR payment-service ConnectionPoolExhausted: no database connections available in pool
+2026-10-12T02:44:25Z INFO  payment-service reloaded config pool_size=20

@@ -1,0 +1,3 @@
+# Payment service settings
+db_pool_size: 20
+gateway_timeout_ms: 5000

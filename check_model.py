@@ -6,6 +6,6 @@ async def main():
     async for message in query(prompt="Reply with just OK.", options=options):
         if isinstance(message, AssistantMessage):
             print("Model:", message.model)
-            break
+            # break
 
 asyncio.run(main())

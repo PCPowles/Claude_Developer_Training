@@ -1,5 +1,7 @@
 import os
 import sys
+import json
+from anthropic import Anthropic
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__),"..","shared"))
 
@@ -19,8 +21,7 @@ def main() -> None:
     )
 
 
-import json
-from anthropic import Anthropic
+
 
 """
 # Mock wrappers for the course's utility logging environment shown in your IDE

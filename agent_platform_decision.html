@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choosing an agent platform</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a1a; --muted: #5c6370; --line: #8a93a0;
+    --q-bg: #f3f4f6; --q-border: #9aa3af;
+    --r-bg: #e8f1fb; --r-border: #2a6fb0;
+    --g-bg: #fdf1e0; --g-border: #c77b12;
+    --yes: #1f7a45; --no: #9a3b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14171c; --fg: #e8eaed; --muted: #a0a7b3; --line: #6b7380;
+      --q-bg: #1f242c; --q-border: #4b5563;
+      --r-bg: #14283d; --r-border: #5aa0e0;
+      --g-bg: #33260f; --g-border: #e0a040;
+      --yes: #5fd08a; --no: #e08585;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 20px 48px; background: var(--bg); color: var(--fg);
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  h1 { font-size: 22px; margin: 0 0 4px; text-align: center; }
+  .sub { text-align: center; color: var(--muted); margin: 0 0 28px; }
+  .flow { max-width: 860px; margin: 0 auto; }
+
+  .start {
+    width: max-content; margin: 0 auto; padding: 8px 22px; border-radius: 999px;
+    border: 2px solid var(--q-border); background: var(--q-bg); font-weight: 600;
+  }
+  .down { display: flex; flex-direction: column; align-items: center; color: var(--line); height: 34px; justify-content: center; }
+  .down::before { content: ""; width: 2px; flex: 1; background: var(--line); }
+  .down::after { content: ""; border: 6px solid transparent; border-top: 8px solid var(--line); border-bottom: 0; }
+  .down .lbl { position: absolute; transform: translateX(26px); font-size: 12px; font-weight: 700; color: var(--no); }
+  .down { position: relative; }
+
+  .row { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: center; }
+  .q, .r, .g {
+    border-radius: 10px; padding: 12px 16px; border: 2px solid;
+  }
+  .q { background: var(--q-bg); border-color: var(--q-border); font-weight: 600; text-align: center; }
+  .r { background: var(--r-bg); border-color: var(--r-border); }
+  .r b, .g b { display: block; margin-bottom: 2px; }
+  .r span, .g span { color: var(--muted); font-size: 13.5px; }
+  .g { background: var(--g-bg); border-color: var(--g-border); }
+
+  .arrow { position: relative; height: 2px; background: var(--line); margin: 0 4px; }
+  .arrow::after {
+    content: ""; position: absolute; right: -2px; top: -6px;
+    border: 7px solid transparent; border-left: 9px solid var(--line); border-right: 0;
+  }
+  .arrow .lbl {
+    position: absolute; left: 50%; top: -20px; transform: translateX(-50%);
+    font-size: 12px; font-weight: 700; color: var(--yes);
+  }
+
+  .final { display: flex; justify-content: center; }
+  .final .r { max-width: 420px; width: 100%; }
+
+  .divider { margin: 40px auto 18px; max-width: 860px; border-top: 2px dashed var(--line); text-align: center; }
+  .divider span { position: relative; top: -12px; background: var(--bg); padding: 0 12px; color: var(--muted); font-size: 13px; }
+  .hook { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: center; }
+  .hook .arrow .lbl { color: var(--g-border); width: 120px; text-align: center; }
+
+  @media (max-width: 640px) {
+    .row, .hook { grid-template-columns: 1fr; gap: 0; }
+    .arrow { width: 2px; height: 34px; margin: 0 auto; }
+    .arrow::after { right: -6px; top: auto; bottom: -2px; border: 7px solid transparent; border-top: 9px solid var(--line); border-bottom: 0; }
+    .arrow .lbl { left: 14px; top: 8px; transform: none; }
+  }
+</style>
+</head>
+<body>
+<h1>Choosing an agent platform</h1>
+<p class="sub">Follow the questions top to bottom. The first "Yes" is your answer.</p>
+
+<div class="flow">
+  <div class="start">What are you building?</div>
+  <div class="down"></div>
+
+  <div class="row">
+    <div class="q">Zero Data Retention or PHI?</div>
+    <div class="arrow"><span class="lbl">Yes</span></div>
+    <div class="r"><b>Agent SDK or custom loop</b><span>On a covered configuration. Managed Agents stores sessions server-side and is not currently eligible.</span></div>
+  </div>
+  <div class="down"><span class="lbl">No</span></div>
+
+  <div class="row">
+    <div class="q">Small fixed tool set inside an existing service?</div>
+    <div class="arrow"><span class="lbl">Yes</span></div>
+    <div class="r"><b>Custom Messages API loop</b><span>Full control, nothing extra to host.</span></div>
+  </div>
+  <div class="down"><span class="lbl">No</span></div>
+
+  <div class="row">
+    <div class="q">Need files, shell and subagents, and you run your own platform?</div>
+    <div class="arrow"><span class="lbl">Yes</span></div>
+    <div class="r"><b>Agent SDK, self-hosted</b><span>Claude Code's tools and loop, on your containers.</span></div>
+  </div>
+  <div class="down"><span class="lbl">No</span></div>
+
+  <div class="row">
+    <div class="q">Tools must run inside your network?</div>
+    <div class="arrow"><span class="lbl">Yes</span></div>
+    <div class="r"><b>Managed Agents, self-hosted sandbox</b><span>Anthropic orchestrates; your worker executes tools.</span></div>
+  </div>
+  <div class="down"><span class="lbl">No</span></div>
+
+  <div class="final">
+    <div class="r"><b>Managed Agents, cloud sandbox</b><span>Anthropic hosts the loop, sandbox and session history. Best for long-running asynchronous tasks when you don't want to build the loop or sandbox.</span></div>
+  </div>
+
+  <div class="divider"><span>Independent of the choice above</span></div>
+
+  <div class="hook">
+    <div class="q" style="background:var(--g-bg);border-color:var(--g-border)">A rule must hold on every tool call?</div>
+    <div class="arrow"><span class="lbl">Add</span></div>
+    <div class="g"><b>PreToolUse hook</b><span>Enforced in code, not left to Claude.</span></div>
+  </div>
+</div>
+</body>
+</html>

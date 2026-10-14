@@ -1,0 +1,22 @@
+# requirements.yaml: agreed with the customer before design starts
+business_problem: "Support agents take too long to answer billing tickets"
+functional:
+  - id: F1
+    statement: "Classify each ticket as billing, technical, account or other"
+    check: "Eval: 95% agreement on 200 labelled tickets"
+  - id: F2
+    statement: "Draft a reply that cites the policy section it used"
+    check: "Eval: every cited section exists in the policy set"
+  - id: F3
+    statement: "Never send a reply without an agent's approval"
+    check: "Integration test: send endpoint rejects unapproved drafts"
+infrastructure:
+  - id: I1
+    statement: "First text visible within 2 seconds for agents in Frankfurt"
+    source: "Support operations target"
+  - id: I2
+    statement: "Ticket text processed only in the EU"
+    source: "Customer data processing agreement"
+  - id: I3
+    statement: "Calls run under a service identity and are logged with the ticket ID"
+    source: "Internal audit policy"

@@ -36,5 +36,8 @@ A personal workspace for Claude developer-certification training (Anthropic SDK 
  C:\Users\pcpow\claude\projects\c--dev-Claude-Developer-Training\
  memory\MEMORY.md
 
+ View Output from Python Program:
+  claude -p async_calls.py --output-format stream-json --verbose
+
 """
 
